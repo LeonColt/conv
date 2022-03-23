@@ -1,0 +1,195 @@
+{
+    "schemes": [
+        "http",
+        "https"
+    ],
+    "swagger": "2.0",
+    "info": {
+        "description": "Api to convert file using libreoffice",
+        "title": "Libre office convert API",
+        "contact": {},
+        "version": "1.0"
+    },
+    "host": "localhost:8080",
+    "basePath": "/public",
+    "paths": {
+        "/docx-to-html": {
+            "post": {
+                "description": "Convert file from docx to html",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "DocxToHtml"
+                ],
+                "summary": "Convert file from docx to html",
+                "operationId": "DocxToHtml",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "this is a test file",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    }
+                }
+            }
+        },
+        "/docx-to-pdf": {
+            "post": {
+                "description": "Convert file from docx to pdf",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "DocxToPdf"
+                ],
+                "summary": "Convert file from docx to pdf",
+                "operationId": "DocxToPdf",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "this is a test file",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    }
+                }
+            }
+        },
+        "/html-to-docx": {
+            "post": {
+                "description": "Convert file from html to docx",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "HtmlToDocx"
+                ],
+                "summary": "Convert file from html to docx",
+                "operationId": "HtmlToDocx",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "this is a test file",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    }
+                }
+            }
+        },
+        "/html-to-pdf": {
+            "post": {
+                "description": "Convert file from html to pdf",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "tags": [
+                    "HtmlToPdf"
+                ],
+                "summary": "Convert file from html to pdf",
+                "operationId": "HtmlToPdf",
+                "parameters": [
+                    {
+                        "type": "file",
+                        "description": "this is a test file",
+                        "name": "file",
+                        "in": "formData",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "$ref": "#/definitions/models.HTTPError"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "models.HTTPError": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "example": 400
+                },
+                "message": {
+                    "type": "string",
+                    "example": "status bad request"
+                }
+            }
+        }
+    },
+    "securityDefinitions": {
+        "ApiKeyAuth": {
+            "type": "apiKey",
+            "name": "authorization",
+            "in": "header"
+        }
+    }
+}

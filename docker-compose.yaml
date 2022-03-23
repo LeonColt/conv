@@ -1,0 +1,29 @@
+version: '3.4'
+
+#Docker Networks
+networks:
+  conv:
+    name: conv
+    ipam:
+      config:
+      - subnet: 172.16.238.0/24
+        gateway: 172.16.238.1
+
+services:
+  conv:
+    image: conv:0.0.1
+    container_name: conv
+    # always restart the container if it stops.
+    restart: always
+    # docker run -t is allow
+    tty: true
+    environment:
+      ADDRESS: 0.0.0.0:8080
+      TEMP_DIR: /etc/conv/
+      LIBREOFFICE_PATH: /usr/bin/soffice
+    volumes:
+      - ./conv/temp:/etc/conv/
+    ports:
+      - 8080:8080
+    networks:
+      - conv

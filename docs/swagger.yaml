@@ -1,0 +1,131 @@
+basePath: /public
+definitions:
+  models.HTTPError:
+    properties:
+      code:
+        example: 400
+        type: integer
+      message:
+        example: status bad request
+        type: string
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: Api to convert file using libreoffice
+  title: Libre office convert API
+  version: "1.0"
+paths:
+  /docx-to-html:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Convert file from docx to html
+      operationId: DocxToHtml
+      parameters:
+      - description: this is a test file
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+      summary: Convert file from docx to html
+      tags:
+      - DocxToHtml
+  /docx-to-pdf:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Convert file from docx to pdf
+      operationId: DocxToPdf
+      parameters:
+      - description: this is a test file
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+      summary: Convert file from docx to pdf
+      tags:
+      - DocxToPdf
+  /html-to-docx:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Convert file from html to docx
+      operationId: HtmlToDocx
+      parameters:
+      - description: this is a test file
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+      summary: Convert file from html to docx
+      tags:
+      - HtmlToDocx
+  /html-to-pdf:
+    post:
+      consumes:
+      - multipart/form-data
+      description: Convert file from html to pdf
+      operationId: HtmlToPdf
+      parameters:
+      - description: this is a test file
+        in: formData
+        name: file
+        required: true
+        type: file
+      responses:
+        "200":
+          description: ""
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.HTTPError'
+      summary: Convert file from html to pdf
+      tags:
+      - HtmlToPdf
+schemes:
+- http
+- https
+securityDefinitions:
+  ApiKeyAuth:
+    in: header
+    name: authorization
+    type: apiKey
+swagger: "2.0"

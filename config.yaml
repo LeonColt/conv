@@ -1,0 +1,3 @@
+ADDRESS: "localhost:8080"
+TEMP_DIR: "A:\\temp\\"
+LIBREOFFICE_PATH: "C:\\Program Files\\LibreOffice\\program\\soffice.exe"
